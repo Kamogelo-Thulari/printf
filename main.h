@@ -2,14 +2,12 @@
 #define MAIN_H
 
 #include <stdarg.h>
-typedef struct formatter {
-	char *symb;
-	void (*f)(char *);
-	char *letter;
-	void (*f)(va_list argl);
-}format;
+#include <unistd.h>
+#include <stdio.h>
+
 int _printf(const char *format, ...);
-void printch(va_list argl);
-void (*conversion(const char *))(va_list argl);
+int print_str(char *str);
+char _putchar(char c);
+int printdec(long int val);
 
 #endif

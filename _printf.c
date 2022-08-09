@@ -15,23 +15,37 @@
  */
 int _printf(const char *format, ...)
 {
-	int l;
-	va_list arg;
+	int num = 0, l;
+	va_list argl;
 
-	va_start(arg, format);
-
-	for (l = 0; *(format + l) != '\0'; l++)
-		write(1, format + l, 1);
+	va_start(argl, format);
+	for (l = 0; format[l] != '\0'; l++)
 	{
-		if (*(format + l) == '%')
+		if (format[l] != '%')
 		{
-			conversion(format + ++l)(arg);
+			num += _putchar(format[l]);
+			l++;
 		}
-		else
-		{
-			write(1, format + l, 1);
+		else if (format[l] =='%' && format[l + 1] != ' ')
+		{switch (format[l + 1])
+			{
+				case 'c':
+					num += _putchar(va_arg(argl, int));
+					break;
+
+				case 's':
+					num += print_str(va_arg(argl, char *));
+					break;
+
+				case 'd':
+					num += printdec(va_arg(argl, int));
+					break;
+				default:
+				break;
+			}
+			va_end(argl);
 		}
-	}
-	
-	return (0);
+			l += 2;
+	} 
+	return (num);
 }
