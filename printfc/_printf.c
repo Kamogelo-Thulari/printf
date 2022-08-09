@@ -15,11 +15,8 @@
  */
 int _printf(const char *format, ...)
 {
-<<<<<<< Updated upstream:_printf.c
-=======
 <<<<<<< HEAD
 <<<<<<< HEAD
->>>>>>> Stashed changes:printfc/_printf.c
 	int num = 0, l;
 	va_list argl;
 
@@ -57,8 +54,6 @@ int _printf(const char *format, ...)
 			l += 2;
 	} 
 	return (num);
-<<<<<<< Updated upstream:_printf.c
-=======
 =======
 	int l;
 	va_list arg;
@@ -104,5 +99,4 @@ int _printf(const char *format, ...)
 	} 
 	return (num);
 >>>>>>> e10153ca475ffb75f70c93b5fb1be044e32c1069
->>>>>>> Stashed changes:printfc/_printf.c
 }
