@@ -18,7 +18,7 @@ int printdec(long int val)
 	if (val < 0)
 	{
 		num += _putchar('-');
-		num = val * - 1;
+		val = val * - 1;
 	}
 
 	if (val / 10)
