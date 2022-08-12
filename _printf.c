@@ -15,10 +15,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int num = 0, l;
+	int num = 0, l, strl;
 	va_list argl;
 
 	va_start(argl, format);
+
+	for (strl = 0; *(format + strl) != '\0'; strl++)
+		return (write(1, format + strl, 1));
+
 	for (l = 0; format[l] != '\0'; l++)
 	{
 		if (format[l] != '%')
@@ -26,7 +30,7 @@ int _printf(const char *format, ...)
 			num += _putchar(format[l]);
 			l++;
 		}
-		else if (format[l] =='%' && format[l + 1] != ' ')
+		else if (format[l] == '%' && format[l + 1] != ' ')
 		{switch (format[l + 1])
 			{
 				case 'c':
@@ -39,7 +43,7 @@ int _printf(const char *format, ...)
 					
 				case '%':
 					num += _putchar('%');
-					break
+					break;
 
 				case 'd':
 					num += printdec(va_arg(argl, int));

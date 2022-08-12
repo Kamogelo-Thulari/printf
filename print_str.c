@@ -13,9 +13,9 @@ int print_str(char *str)
 {
 	int num, i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; (str[i]) != '\0'; i++)
 	{
-		num += _putchar(str[i]);
+		num += _putchar((str[i]));
 	}
 
 	return (num);
